@@ -7,6 +7,9 @@
 int main()
 {
     cell Subjects[15];
+    int valid=0;
+    nodo*stStudent=inicList();
+    valid=addAdl(Subjects,valid,stStudent);
 
     return 0;
 }
