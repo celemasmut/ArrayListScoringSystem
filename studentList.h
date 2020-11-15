@@ -19,6 +19,9 @@ void showRecursiveList(nodo*list);
 int sumScoreRecursiveList(nodo*list);
 void eraseSpecificNodoByFileDP(nodo**list, char file[]);
 void eraseListaDP(nodo** list);
+nodo* insertStListToFile(nodo*stlist);
+void saveStListIntoFile(char fileStudent[],nodo*stlist);
+int insertScore(nodo*list);
 
 
 #endif // STUDENTLIST_H_INCLUDED

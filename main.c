@@ -4,13 +4,16 @@
 #include "studentScore.h"
 #include "utilities.h"
 
+
 int main()
 {
     cell Subjects[15];
     int valid=0;
-    nodo*stStudent=inicList();
+    studentScore myStuden;
+    insertStudentToFile();
+    /*nodo*stStudent=inicList();
     valid=addAdl(Subjects,valid,stStudent);
-
+*/
     return 0;
 }
 

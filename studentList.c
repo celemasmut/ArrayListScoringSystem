@@ -1,4 +1,5 @@
 #include "studentList.h"
+#include "studentScore.h"
 
 nodo* inicList()
 {
@@ -35,7 +36,7 @@ void addInOrderByLnameDP(nodo**list,nodo*newNodo)
     else
     {
 
-        if(strcmpi(newNodo->dat.lastName ,(*list)->dat.lastName) < 0)//segunda posibilidad, se evalua si el dato nuevo es menor al primer dato de la lista
+        if(strcmpi(newNodo->dat.lastName,(*list)->dat.lastName) < 0) //segunda posibilidad, se evalua si el dato nuevo es menor al primer dato de la lista
         {
             addAtFirstDP(list,newNodo);
         }
@@ -81,7 +82,7 @@ int sumScoreRecursiveList(nodo*list)
     int sum=0;
     if(list)
     {
-       sum=list->dat.score + sumScoreRecursiveList(list->next);
+        sum=list->dat.score + sumScoreRecursiveList(list->next);
     }
     return sum;
 }
@@ -124,26 +125,34 @@ void eraseListaDP(nodo** list)//borra toda la lista
     }
 }
 
-void insertStListToFile()
+nodo* insertStListToFile(nodo*stlist)
 {
     nodo*aux;
     char option;
     do
     {
         aux->dat=student();
-        saveStListIntoFile(StudentFile,createNewNodo(aux->dat));
+        showStudent(aux->dat);
+       /* addAtFirstDP(&stlist,createNewNodo(aux->dat));
+        showNodo(stlist);*/
         printf("\n ESC para salir..... ");
         fflush(stdin);
         option=getch();
     }
     while(option!=27);
+    saveStListIntoFile(StudentFile,stlist);
+    return stlist;
 }
-void saveStListIntoFile(char fileStudent[],nodo* neww)
+void saveStListIntoFile(char fileStudent[],nodo*stlist)
 {
     FILE*arch=fopen(fileStudent,"ab");
     if(arch)
     {
-        fwrite(&neww,sizeof(nodo),1,arch);
+        while(stlist)
+        {
+            fwrite(&stlist,sizeof(nodo),1,arch);
+            stlist->next;
+        }
         fclose(arch);
     }
 }

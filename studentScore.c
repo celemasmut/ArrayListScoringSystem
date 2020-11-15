@@ -1,30 +1,36 @@
 #include "studentScore.h"
+#define StudentFile "StudentScores"
 
 studentScore student()
 {
     studentScore aux;
-    char file[5];
+    int file;
     srand(time(NULL));
-    itoa(((rand()%9000)+1000),file,10);
-    while((checkingFile(itoa(((rand()%9000)+1000),file,10))) == 1)
+    file=(rand()%9000)+1000;
+    while((checkingFile(file)) == 1)
     {
         printf("Warning! that number file already exists ");
 
     }
-    strcpy(aux.file,file);
+    printf("pasawhile");
+    fflush(stdin);
+    aux.file=file;
+    fflush(stdin);
+    printf("File: %d",aux.file);
+    fflush(stdin);
     printf("Last Name: ");
     fflush(stdin);
     gets(aux.lastName);
     printf("Name: ");
     fflush(stdin);
     gets(aux.name);
-    /*printf("Score: ");
-    scanf("%d",aux.score);*/
+    aux.score=0;
+    //ok showStudent(aux);
     return aux;
 }
 
 
-int checkingFile(char file[])
+int checkingFile(int file)
 {
     studentScore aux;
     int flag=0;
@@ -32,15 +38,17 @@ int checkingFile(char file[])
     fseek(school,0,SEEK_SET);
     while(flag == 0 && (fread(&aux,sizeof(studentScore),1,school)) > 0)
     {
-        if(atoi(file) == atoi(aux.file))
+        printf("pasa3");
+        if(file == aux.file)
         {
             flag=1;
         }
     }
+    printf("flag= %d",flag);
     return flag;
 }
 
-/*void insertStudentToFile()
+void insertStudentToFile()
 {
     studentScore aux;
     char option;
@@ -62,7 +70,7 @@ void saveStudentIntoFile(char fileStudent[],studentScore aux)
         fwrite(&aux,sizeof(studentScore),1,arch);
         fclose(arch);
     }
-}*/
+}
 void showStudent(studentScore st)
 {
     printf("FILE: %s",st.file);

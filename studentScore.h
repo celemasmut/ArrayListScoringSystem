@@ -13,7 +13,7 @@ typedef struct {
 } studentScore;
 
 studentScore student();
-int checkingFile(char file[]);
+int checkingFile(int file);
 void insertStudentToFile();
 void saveStudentIntoFile(char fileStudent[],studentScore aux);
 void showStudent(studentScore st);
