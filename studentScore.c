@@ -1,5 +1,8 @@
 #include "studentScore.h"
-#define StudentFile "StudentScores"
+#include "utilities.h"
+
+#define subjects "arraySubjects.bin"
+
 
 studentScore student()
 {
@@ -12,50 +15,49 @@ studentScore student()
         printf("Warning! that number file already exists ");
 
     }
-    printf("pasawhile");
     fflush(stdin);
     aux.file=file;
     fflush(stdin);
-    printf("File: %d",aux.file);
+    printf("\nFile: %d",aux.file);
     fflush(stdin);
-    printf("Last Name: ");
+    printf("\nLast Name: ");
     fflush(stdin);
     gets(aux.lastName);
-    printf("Name: ");
+    printf("\nName: ");
     fflush(stdin);
     gets(aux.name);
-    aux.score=0;
-    //ok showStudent(aux);
+    fflush(stdin);
+    printf("Score: ");
+    scanf("%d",&aux.score);
+    fflush(stdin);
     return aux;
 }
 
 
 int checkingFile(int file)
 {
-    studentScore aux;
+    fileRegister aux;
     int flag=0;
-    FILE*school=fopen(StudentFile,"rb");
+    FILE*school=fopen(subjects,"rb");
     fseek(school,0,SEEK_SET);
-    while(flag == 0 && (fread(&aux,sizeof(studentScore),1,school)) > 0)
+    while(flag == 0 && (fread(&aux,sizeof(fileRegister),1,school)) > 0)
     {
-        printf("pasa3");
-        if(file == aux.file)
+        if(file == aux.student.file)
         {
             flag=1;
         }
     }
-    printf("flag= %d",flag);
     return flag;
 }
 
-void insertStudentToFile()
+/*void insertStudentToFile()
 {
     studentScore aux;
     char option;
     do
     {
         aux=student();
-        saveStudentIntoFile(StudentFile,aux);
+        saveStudentIntoFile(STscore,aux);
         printf("\n ESC para salir..... ");
         fflush(stdin);
         option=getch();
@@ -68,14 +70,29 @@ void saveStudentIntoFile(char fileStudent[],studentScore aux)
     if(arch)
     {
         fwrite(&aux,sizeof(studentScore),1,arch);
-        fclose(arch);
     }
-}
+    else
+    {
+        printf("no hay arch");
+    }
+    fclose(arch);
+}*/
 void showStudent(studentScore st)
 {
-    printf("FILE: %s",st.file);
+    printf("\nFILE: %d",st.file);
     fflush(stdin);
     printf("\nName and Last name...%s %s",st.name,st.lastName);
     fflush(stdin);
-    printf("Score: %d",st.score);
+    printf("\nScore: %d",st.score);
 }
+/*void showArcStudent(char stscore[])
+{
+    studentScore aux;
+    FILE*school;
+    school=fopen(stscore,"rb");
+    while((fread(&aux,sizeof(studentScore),1,school)) > 0)
+    {
+        showStudent(aux);
+    }
+    fclose(school);
+}*/

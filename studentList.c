@@ -13,6 +13,20 @@ nodo* createNewNodo(studentScore e)
     aux->next=NULL;
     return aux;
 }
+nodo* addAtFirst(nodo*lista,nodo*newNodo)//lo que paso por parametro es una copia por eso retornamos la lista.
+{
+    if(lista==NULL)
+    {
+        lista=newNodo;
+    }
+    else
+    {
+        newNodo->next=lista;
+        lista=newNodo;
+    }
+    return lista;
+}
+
 void addAtFirstDP(nodo**lista,nodo*newNodo)//paso por parametro lista con puntero doble para modificar por parametro por lo que no se necesita el retorno de lista
 {
     if((*lista) == NULL)
@@ -65,7 +79,8 @@ void showList(nodo*studentList)
 {
     while(studentList)
     {
-        showNodo;
+        showNodo(studentList);
+        studentList=studentList->next;
     }
 }
 void showRecursiveList(nodo*list)// aca no se usa auxiliar por que la llamada recursiva es un viaje de ida y vuelta
@@ -125,22 +140,22 @@ void eraseListaDP(nodo** list)//borra toda la lista
     }
 }
 
-nodo* insertStListToFile(nodo*stlist)
+/*nodo* insertStListToFile(nodo*stlist)
 {
-    nodo*aux;
+    nodo*aux=inicList();
+    studentScore st;
     char option;
     do
     {
-        aux->dat=student();
-        showStudent(aux->dat);
-       /* addAtFirstDP(&stlist,createNewNodo(aux->dat));
-        showNodo(stlist);*/
+        st=student();
+        addInOrderByLnameDP(&stlist,createNewNodo(st));
         printf("\n ESC para salir..... ");
         fflush(stdin);
         option=getch();
     }
     while(option!=27);
-    saveStListIntoFile(StudentFile,stlist);
+    showList(stlist);
+    saveStListIntoFile(STscore,stlist);
     return stlist;
 }
 void saveStListIntoFile(char fileStudent[],nodo*stlist)
@@ -150,12 +165,16 @@ void saveStListIntoFile(char fileStudent[],nodo*stlist)
     {
         while(stlist)
         {
-            fwrite(&stlist,sizeof(nodo),1,arch);
+            fwrite(&stlist,sizeof(nodo*),1,arch);
             stlist->next;
         }
-        fclose(arch);
     }
-}
+    else
+    {
+        printf("no hay arch");
+    }
+    fclose(arch);
+}*/
 int insertScore(nodo*list)
 {
     int score=0;

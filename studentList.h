@@ -11,6 +11,7 @@ typedef struct _nodo {
 } nodo;
 
 nodo* inicList();
+nodo* addAtFirst(nodo*lista,nodo*newNodo);//lo que paso por parametro es una copia por eso retornamos la lista.
 nodo* createNewNodo(studentScore e);
 void addAtFirstDP(nodo**lista,nodo*newNodo);
 void addInOrderByLnameDP(nodo**list,nodo*newNodo);

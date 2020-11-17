@@ -1,33 +1,34 @@
 # depslib dependency file v1.0
-1605476897 source:c:\users\celeste\documents\github\arraylistscoringsystem\studentscore.c
+1605582857 source:c:\users\celeste\documents\github\arraylistscoringsystem\studentscore.c
 	"studentScore.h"
+	"utilities.h"
 
-1605475240 source:c:\users\celeste\documents\github\arraylistscoringsystem\main.c
+1605583881 source:c:\users\celeste\documents\github\arraylistscoringsystem\main.c
 	<stdio.h>
 	<stdlib.h>
 	"studentList.h"
 	"studentScore.h"
 	"utilities.h"
 
-1605474370 c:\users\celeste\documents\github\arraylistscoringsystem\studentlist.h
+1605573318 c:\users\celeste\documents\github\arraylistscoringsystem\studentlist.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"studentScore.h"
 
-1605477391 c:\users\celeste\documents\github\arraylistscoringsystem\studentscore.h
+1605579382 c:\users\celeste\documents\github\arraylistscoringsystem\studentscore.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<time.h>
 
-1605474435 source:c:\users\celeste\documents\github\arraylistscoringsystem\studentlist.c
+1605577928 source:c:\users\celeste\documents\github\arraylistscoringsystem\studentlist.c
 	"studentList.h"
 	"studentScore.h"
 
-1605473516 c:\users\celeste\documents\github\arraylistscoringsystem\utilities.h
+1605583881 c:\users\celeste\documents\github\arraylistscoringsystem\utilities.h
 	"studentList.h"
 
-1605408738 source:c:\users\celeste\documents\github\arraylistscoringsystem\utilities.c
+1605583681 source:c:\users\celeste\documents\github\arraylistscoringsystem\utilities.c
 	"utilities.h"
 

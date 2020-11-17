@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#define StudentFile "StudentScores"
+
+
 typedef struct {
    int score;
    int file;

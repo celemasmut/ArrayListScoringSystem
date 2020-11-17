@@ -5,19 +5,25 @@
 #include "utilities.h"
 
 
+#define subjects "arraySubjects.bin"
+
+
+
+//void archToListDP2(nodo**list,char archStudent[]);
+
+
 int main()
 {
     cell Subjects[15];
     int valid=0;
-    studentScore myStuden;
-    insertStudentToFile();
-    /*nodo*stStudent=inicList();
-    valid=addAdl(Subjects,valid,stStudent);
-*/
+    //insertRegisterToFile();
+    showArchSubject();
+   valid=arch2Adl(Subjects,valid,15);
+    printf("\nValid= %d",valid);
     return 0;
 }
 
-void archToListDP2(nodo**list,char archStudent[])
+/*void archToListDP2(nodo**list,char archStudent[])
 {
     studentScore st;
     FILE *arch=fopen(archStudent,"rb");
@@ -25,10 +31,10 @@ void archToListDP2(nodo**list,char archStudent[])
     {
         while(fread(&st,sizeof(studentScore),1,arch) > 0) // se lee el dato de empleado en el archivo
         {
-            addAtFirstDP(list,createNewNodo(st));//no uso el ampersand por que ya recibo lista como puntero doble
+            addInOrderByLnameDP(list,createNewNodo(st));
         }
         fclose(arch);
     }
     //atencion con la funcion mostrar
     // showList(*lista);// showlist pide un puntero simple y como estamoc trabajando con DP a lista se le debe pasar un * simple.
-}
+}*/
