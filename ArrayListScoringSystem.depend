@@ -3,7 +3,7 @@
 	"studentScore.h"
 	"utilities.h"
 
-1605583881 source:c:\users\celeste\documents\github\arraylistscoringsystem\main.c
+1605802174 source:c:\users\celeste\documents\github\arraylistscoringsystem\main.c
 	<stdio.h>
 	<stdlib.h>
 	"studentList.h"
@@ -26,9 +26,9 @@
 	"studentList.h"
 	"studentScore.h"
 
-1605583881 c:\users\celeste\documents\github\arraylistscoringsystem\utilities.h
+1605802154 c:\users\celeste\documents\github\arraylistscoringsystem\utilities.h
 	"studentList.h"
 
-1605583681 source:c:\users\celeste\documents\github\arraylistscoringsystem\utilities.c
+1605801931 source:c:\users\celeste\documents\github\arraylistscoringsystem\utilities.c
 	"utilities.h"
 

@@ -2,6 +2,8 @@
 
 char subjects[]="arraySubjects.bin";
 
+char passed[]="Passed.bin";
+
 void insertRegisterToFile()
 {
     fileRegister aux;
@@ -38,7 +40,6 @@ int add2adl(cell adl[],fileRegister auxFR,int valid)
     int pos = looking4PosSubject(adl,auxFR.subject,valid);
     if(pos == -1)
     {
-
         valid=addSubject(adl,auxFR.subject,valid);
         pos=valid-1;
     }
@@ -124,4 +125,45 @@ void showregister(fileRegister aux)
 {
     showStudent(aux.student);
     printf("\nSubject: %s",aux.subject);
+}
+void showAdl(cell adl[],int valid)
+{
+    int index;
+    for(index=0;index<valid;index++)
+    {
+        printf("\n\nSubject: %s",adl[index].subject);
+        showList(adl[index].scorelist);
+    }
+}
+
+int fromAdl2ArchPassed(cell adl[],int valid)
+{
+    int index;
+    int tot=0;
+    for(index=0;index<valid;index++)
+    {
+        nodo*auxList=adl[index].scorelist;
+        while(auxList)
+        {
+            if(auxList->dat.score >= 6)
+            {
+                fileRegister aux;
+                aux.student=auxList->dat;
+                strcpy(aux.subject,adl[index].subject);
+                saveRegisterPassedToArch(passed,aux);
+                tot++;
+            }
+            auxList=auxList->next;
+        }
+    }
+    return tot;
+}
+void saveRegisterPassedToArch(char archPassed[],fileRegister aux)
+{
+    FILE*arch=fopen(archPassed,"ab");
+    if(arch)
+    {
+        fwrite(&aux,sizeof(fileRegister),1,arch);
+    }
+    fclose(arch);
 }

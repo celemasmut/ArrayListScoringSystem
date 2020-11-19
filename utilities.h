@@ -23,5 +23,8 @@ int looking4PosSubject(cell adl[],char subject[],int valid);
 int addSubject(cell adl[],char subject[],int valid);
 int addScoreToList(cell adl[],int valid);
 int registerSubject(cell adl[],char subject[],int valid);
+int fromAdl2ArchPassed(cell adl[],int valid);
+void saveRegisterPassedToArch(char archPassed[],fileRegister aux);
+void showAdl(cell adl[],int valid);
 
 #endif // UTILITIES_H_INCLUDED
